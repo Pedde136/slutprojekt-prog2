@@ -1,0 +1,15 @@
+d:\Users\Pedram\Documents\GitHub\slutprojekt-prog2\snake\snake\bin\Debug\snake.exe.config
+d:\Users\Pedram\Documents\GitHub\slutprojekt-prog2\snake\snake\bin\Debug\snake.exe
+d:\Users\Pedram\Documents\GitHub\slutprojekt-prog2\snake\snake\bin\Debug\snake.pdb
+d:\Users\Pedram\Documents\GitHub\slutprojekt-prog2\snake\snake\obj\Debug\snake.csprojAssemblyReference.cache
+d:\Users\Pedram\Documents\GitHub\slutprojekt-prog2\snake\snake\obj\Debug\MainWindow.g.cs
+d:\Users\Pedram\Documents\GitHub\slutprojekt-prog2\snake\snake\obj\Debug\App.g.cs
+d:\Users\Pedram\Documents\GitHub\slutprojekt-prog2\snake\snake\obj\Debug\snake_MarkupCompile.cache
+d:\Users\Pedram\Documents\GitHub\slutprojekt-prog2\snake\snake\obj\Debug\snake_MarkupCompile.lref
+d:\Users\Pedram\Documents\GitHub\slutprojekt-prog2\snake\snake\obj\Debug\MainWindow.baml
+d:\Users\Pedram\Documents\GitHub\slutprojekt-prog2\snake\snake\obj\Debug\snake.g.resources
+d:\Users\Pedram\Documents\GitHub\slutprojekt-prog2\snake\snake\obj\Debug\snake.Properties.Resources.resources
+d:\Users\Pedram\Documents\GitHub\slutprojekt-prog2\snake\snake\obj\Debug\snake.csproj.GenerateResource.cache
+d:\Users\Pedram\Documents\GitHub\slutprojekt-prog2\snake\snake\obj\Debug\snake.csproj.CoreCompileInputs.cache
+d:\Users\Pedram\Documents\GitHub\slutprojekt-prog2\snake\snake\obj\Debug\snake.exe
+d:\Users\Pedram\Documents\GitHub\slutprojekt-prog2\snake\snake\obj\Debug\snake.pdb

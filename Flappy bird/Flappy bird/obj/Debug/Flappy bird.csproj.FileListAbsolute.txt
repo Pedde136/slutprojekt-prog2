@@ -1,0 +1,15 @@
+d:\Users\Pedram\Documents\GitHub\slutprojekt-prog2\Flappy bird\Flappy bird\bin\Debug\Flappy bird.exe.config
+d:\Users\Pedram\Documents\GitHub\slutprojekt-prog2\Flappy bird\Flappy bird\bin\Debug\Flappy bird.exe
+d:\Users\Pedram\Documents\GitHub\slutprojekt-prog2\Flappy bird\Flappy bird\bin\Debug\Flappy bird.pdb
+d:\Users\Pedram\Documents\GitHub\slutprojekt-prog2\Flappy bird\Flappy bird\obj\Debug\Flappy bird.csprojAssemblyReference.cache
+d:\Users\Pedram\Documents\GitHub\slutprojekt-prog2\Flappy bird\Flappy bird\obj\Debug\MainWindow.g.cs
+d:\Users\Pedram\Documents\GitHub\slutprojekt-prog2\Flappy bird\Flappy bird\obj\Debug\App.g.cs
+d:\Users\Pedram\Documents\GitHub\slutprojekt-prog2\Flappy bird\Flappy bird\obj\Debug\Flappy bird_MarkupCompile.cache
+d:\Users\Pedram\Documents\GitHub\slutprojekt-prog2\Flappy bird\Flappy bird\obj\Debug\Flappy bird_MarkupCompile.lref
+d:\Users\Pedram\Documents\GitHub\slutprojekt-prog2\Flappy bird\Flappy bird\obj\Debug\MainWindow.baml
+d:\Users\Pedram\Documents\GitHub\slutprojekt-prog2\Flappy bird\Flappy bird\obj\Debug\Flappy bird.g.resources
+d:\Users\Pedram\Documents\GitHub\slutprojekt-prog2\Flappy bird\Flappy bird\obj\Debug\Flappy_bird.Properties.Resources.resources
+d:\Users\Pedram\Documents\GitHub\slutprojekt-prog2\Flappy bird\Flappy bird\obj\Debug\Flappy bird.csproj.GenerateResource.cache
+d:\Users\Pedram\Documents\GitHub\slutprojekt-prog2\Flappy bird\Flappy bird\obj\Debug\Flappy bird.csproj.CoreCompileInputs.cache
+d:\Users\Pedram\Documents\GitHub\slutprojekt-prog2\Flappy bird\Flappy bird\obj\Debug\Flappy bird.exe
+d:\Users\Pedram\Documents\GitHub\slutprojekt-prog2\Flappy bird\Flappy bird\obj\Debug\Flappy bird.pdb
