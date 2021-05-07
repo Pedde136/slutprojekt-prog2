@@ -22,50 +22,66 @@ namespace Flappy_bird
     public partial class MainWindow : Window
     {
 
-        DispatcherTimer gameTimer = new DispatcherTimer(); 
-        double score; //Håller reda på din score
-        int gravity = 8; // Sätter gravity till positiv så att fågeln ska falla
-        bool gameOver; //Sant eller falskt att spelet är över
-        Rect FlappyBirdHitbox; //Lagrar höjden, bredden och platsen för fågeln vilket innebär att vi vet när han träffar röret. Är en hitbox.
+        DispatcherTimer gameTimer = new DispatcherTimer();
+        //Håller reda på din score
+        double score;
+        // Sätter gravity till positiv så att fågeln ska falla
+        int gravity = 8;
+        //Sant eller falskt att spelet är över
+        bool gameOver;
+        //Lagrar höjden, bredden och platsen för fågeln vilket innebär att vi vet när han träffar röret. Är en hitbox.
+        Rect FlappyBirdHitbox;
 
         public MainWindow()
         {
             InitializeComponent();
 
             gameTimer.Tick += MainEventTimer;
-            gameTimer.Interval = TimeSpan.FromMilliseconds(20);//20 anger hur snabbt fågeln flyger.
+            //20 anger hur snabbt fågeln flyger.
+            gameTimer.Interval = TimeSpan.FromMilliseconds(20);
             StartGame();
         }
 
+        /// <summary>
+        /// Själva spelet
+        /// </summary>
         private void MainEventTimer(object sender, EventArgs e)
         {
-            txtScore.Content = "Score: " + score; //Här visas och läggs poängen till
+            //Här visas och läggs poängen till
+            txtScore.Content = "Score: " + score;
+            //Betämmer fågelns hitbox
+            FlappyBirdHitbox = new Rect(Canvas.GetLeft(FlappyBird), Canvas.GetTop(FlappyBird), FlappyBird.Width - 5, FlappyBird.Height);
+            //Här lägger vi till gravitation.
+            Canvas.SetTop(FlappyBird, Canvas.GetTop(FlappyBird) + gravity);
 
-            FlappyBirdHitbox = new Rect(Canvas.GetLeft(FlappyBird), Canvas.GetTop(FlappyBird), FlappyBird.Width - 5, FlappyBird.Height); //Betämmer fågelns hitbox
-
-            Canvas.SetTop(FlappyBird, Canvas.GetTop(FlappyBird) + gravity); //Här lägger vi till gravitation.
-
-            if (Canvas.GetTop(FlappyBird) < -10 || Canvas.GetTop(FlappyBird) > 458) //Om fågeln träffar någon border så förlorar man.
+            //Om fågeln träffar någon border så förlorar man.
+            if (Canvas.GetTop(FlappyBird) < -10 || Canvas.GetTop(FlappyBird) > 458) 
             {
                 EndGame();
             }
 
-            foreach (var x in MyCanvas.Children.OfType<Image>()) //ger rören och målnen rörlighet
+            //ger rören och målnen rörlighet
+            foreach (var x in MyCanvas.Children.OfType<Image>())
             {
                 if ((string)x.Tag == "obs1" || (string)x.Tag == "obs2" || (string)x.Tag == "obs3") 
                 {
-                    Canvas.SetLeft(x, Canvas.GetLeft(x) - 5); //Pipespeed
+                    //Pipespeed
+                    Canvas.SetLeft(x, Canvas.GetLeft(x) - 5);
 
-                    if (Canvas.GetLeft(x) < -100) //generarar om alla pipes efter att de har passerat fågeln.
+                    //generarar om alla pipes efter att de har passerat fågeln.
+                    if (Canvas.GetLeft(x) < -100) 
                     {
                         Canvas.SetLeft(x, 800);
 
-                        score += 0.5; //ett rör är värt 0.5 poäng, och därmed att man flyger över 2st så får man 1 poäng efter varje par.
+                        //ett rör är värt 0.5 poäng, och därmed att man flyger över 2st så får man 1 poäng efter varje par.
+                        score += 0.5; 
                     }
 
-                    Rect pipeHitBox = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);// Här anges hitbox för alla rör
+                    // Här anges hitbox för alla rör
+                    Rect pipeHitBox = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
 
-                    if (FlappyBirdHitbox.IntersectsWith(pipeHitBox))// Om fågeln träffar rören så förlorar man.
+                    // Om fågeln träffar rören så förlorar man.
+                    if (FlappyBirdHitbox.IntersectsWith(pipeHitBox))
                     {
                         EndGame();
                     }
@@ -73,9 +89,11 @@ namespace Flappy_bird
 
                 if ((string)x.Tag == "cloud")
                 {
-                    Canvas.SetLeft(x, Canvas.GetLeft(x) - 2); //Anger molnens fart
+                    //Anger molnens fart
+                    Canvas.SetLeft(x, Canvas.GetLeft(x) - 2);
 
-                    if (Canvas.GetLeft(x) < -250)//Om målnet åker förbi vår canvas så genereras den om igen åt höger.
+                    //Om målnet åker förbi vår canvas så genereras den om igen åt höger.
+                    if (Canvas.GetLeft(x) < -250)
                     {
                         Canvas.SetLeft(x, 550);
                     }
@@ -83,59 +101,74 @@ namespace Flappy_bird
             }
         }
 
-        private void KeyIsDown(object sender, KeyEventArgs e) //hur fågeln går upp (flyger)
+        /// <summary>
+        /// Fågeln flyger upp när man trycker på space
+        /// </summary>
+        private void KeyIsDown(object sender, KeyEventArgs e) 
         {
-            if(e.Key == Key.Space) //Binder space till att fågeln ska flyga upp.
+            //Binder space till att fågeln ska flyga upp.
+            if (e.Key == Key.Space) 
             {
-                FlappyBird.RenderTransform = new RotateTransform(-20, FlappyBird.Width / 2, FlappyBird.Height / 2 );// rotation för fågeln
-                gravity = -8; //istället för att fågeln ska gå ner går den upp då man ändrar på graviteten.
+                // rotation för fågeln
+                FlappyBird.RenderTransform = new RotateTransform(-20, FlappyBird.Width / 2, FlappyBird.Height / 2 );
+                //istället för att fågeln ska gå ner går den upp då man ändrar på graviteten.
+                gravity = -8; 
             }
 
-            if (e.Key == Key.R && gameOver == true) //Om man trycker på R och spelet är över, så kan man börja om igen
+            //Om man trycker på R och spelet är över, så kan man börja om igen
+            if (e.Key == Key.R && gameOver == true) 
             {
                 StartGame();
             }
 
         }
 
-        private void KeyIsUp(object sender, KeyEventArgs e) // Om man inte trycker på space så vinklas fågeln nedåt.
+        /// <summary>
+        /// Om man inte trycker på något åker fågeln nedåt
+        /// </summary>
+        private void KeyIsUp(object sender, KeyEventArgs e) 
         {
             FlappyBird.RenderTransform = new RotateTransform(5, FlappyBird.Width / 2, FlappyBird.Height / 2);
             gravity = 8;
         }
 
-        private void StartGame() //Startar spelet med default värden
+        /// <summary>
+        /// Startar spelet med default värden
+        /// </summary>
+        private void StartGame() 
         {
+            //Håller canvasen i fokus
+            MyCanvas.Focus(); 
 
-            MyCanvas.Focus(); //Håller canvasen i fokus 
+            int temp = 300;
 
-            int temp = 300; 
-
-            score = 0; //start poängen är 0 
+            //start poängen är 0
+            score = 0;  
 
             gameOver = false;
-            Canvas.SetTop(FlappyBird, 190); //Startvärdet på fågeln
-
-            foreach (var x in MyCanvas.Children.OfType<Image>()) //gör så att flyttning mellan bilderna som lagts in kan ske
+            //Startvärdet på fågeln
+            Canvas.SetTop(FlappyBird, 190);
+            //gör så att flyttning mellan bilderna som lagts in kan ske
+            foreach (var x in MyCanvas.Children.OfType<Image>()) 
             {
-
-                if ((string)x.Tag == "obs1") //Om det är obs1 ska den vara på position 500. 
+                //Om det är obs1 ska den vara på position 500.
+                if ((string)x.Tag == "obs1") 
                     {
                     Canvas.SetLeft(x, 500);
                     }
-
-                if ((string)x.Tag == "obs2") //Om det är obs2 ska den vara på position 800
+                //Om det är obs2 ska den vara på position 800
+                if ((string)x.Tag == "obs2") 
                 {
                     Canvas.SetLeft(x, 800);
                     }
-
-                if ((string)x.Tag == "obs3") //Om det är obs3 ska den vara på position 1100
+                //Om det är obs3 ska den vara på position 1100
+                if ((string)x.Tag == "obs3")
                 {
                     Canvas.SetLeft(x, 1100);
                 }
 
-
-                if ((string)x.Tag == "cloud") //anger molnens startposition
+                //anger molnens startposition
+                if ((string)x.Tag == "cloud") 
                 {
                     Canvas.SetLeft(x, 300 + temp);
                     temp = 800;
@@ -145,7 +178,10 @@ namespace Flappy_bird
             gameTimer.Start(); 
         }
 
-        private void EndGame() //spelet avslutas
+        /// <summary>
+        /// //spelet avslutas
+        /// </summary>
+        private void EndGame() 
         {
             gameTimer.Stop();
             gameOver = true;
